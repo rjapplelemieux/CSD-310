@@ -6,7 +6,7 @@ client = MongoClient("mongodb+srv://admin:admin@cluster0.gdme2al.mongodb.net/?re
 db = client["pytech"]
 collection = db["students"]
 
-results = collection.find({})
+results = collection.find({"_id":1007})
 
 for x in results:
     print(x)
