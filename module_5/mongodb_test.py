@@ -2,10 +2,8 @@
 import pymongo
 from pymongo import MongoClient
 
-uri = "mongodb+srv://admin:admin@cluster0.gdme2al.mongodb.net/?retryWrites=true&w=majority"
-
 # Create a new client and connect to the server
-client = MongoClient(uri)
+client = MongoClient("mongodb+srv://admin:admin@cluster0.gdme2al.mongodb.net/?retryWrites=true&w=majority")
 
 # Create a variable named db and assign it to the pytech database instance
 db = client["pytech"]
