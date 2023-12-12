@@ -1,15 +1,8 @@
-/*
-    Title: whatabook.init.sql
-    Author: Professor Krasso
-    Date: 16 July 2020
-    Description: WhatABook database initialization script.
-*/
-
 -- drop test user if exists 
 DROP USER IF EXISTS 'whatabook_user'@'localhost';
 
 -- create whatabook_user and grant them all privileges to the whatabook database 
-CREATE USER 'whatabook_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MySQL8IsGreat!';
+CREATE USER 'whatabook_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 
 -- grant all privileges to the whatabook database to user whatabook_user on localhost 
 GRANT ALL PRIVILEGES ON whatabook.* TO'whatabook_user'@'localhost';
@@ -65,34 +58,34 @@ CREATE TABLE wishlist (
     insert store record 
 */
 INSERT INTO store(locale)
-    VALUES('1000 Galvin Rd S, Bellevue, NE 68005');
+    VALUES('111 Winnie Dr, Bellevue, NE 68005');
 
 /*
     insert book records 
 */
 INSERT INTO book(book_name, author, details)
-    VALUES('The Return of the King', 'J.R.Tolkien', 'The third part of The Lord of the Rings');
+    VALUES('To Kill a Mockingbird', 'Harper Lee', 'A classic novel exploring racial injustice and moral growth in the American South');
 
 INSERT INTO book(book_name, author, details)
-    VALUES('The Fellowship of the Ring', 'J.R.Tolkien', 'The first part of The Lord of the Rings');
+    VALUES('1984', 'George Orwell', 'A dystopian novel depicting a totalitarian society and the struggle for individualism');
 
 INSERT INTO book(book_name, author, details)
-    VALUES('The Two Towers', 'J.R.Tolkien', "The second part of The Lord of The Rings");
+    VALUES('The Great Gatsby', 'F.Scott Fitzgerald', "A portrayal of the Roaring Twenties, capturing the excesses and illusions of the Jazz Age");
 
 INSERT INTO book(book_name, author)
-    VALUES('The Hobbit or There and Back Again', 'J.R.Tolkien');
+    VALUES('Pride and Prejudice', 'Jane Austen');
 
 INSERT INTO book(book_name, author)
-    VALUES('Dune: Deluxe Edition', 'Frank Herbert');
+    VALUES('The Shining', 'Stephen King');
 
 INSERT INTO book(book_name, author)
-    VALUES("Charlotee's Web", 'E.B. White');
+    VALUES("Harry Potter and the Sorcerer's Stone", 'J.K. Rowling');
 
 INSERT INTO book(book_name, author)
-    VALUES('The Great Gatsby', 'F. Scott Fitzgerald');
+    VALUES('The Da Vinci Code', 'Dan Brown');
 
 INSERT INTO book(book_name, author)
-    VALUES('The Lion, the Witch, and the Wardrobe', 'C.S. Lewis');
+    VALUES('The Hitchhikers guide to the Galaxy', 'Douglas Adams');
 
 INSERT INTO book(book_name, author)
     VALUES('The Catcher and the Rye', 'J.D. Salinger');
@@ -101,31 +94,31 @@ INSERT INTO book(book_name, author)
     insert user
 */ 
 INSERT INTO user(first_name, last_name) 
-    VALUES('Thorin', 'Oakenshield');
+    VALUES('Atticus', 'Finch');
 
 INSERT INTO user(first_name, last_name)
-    VALUES('Bilbo', 'Baggins');
+    VALUES('Winston', 'Smith');
 
 INSERT INTO user(first_name, last_name)
-    VALUES('Frodo', 'Baggins');
+    VALUES('Jay', 'Gatsby');
 
 /*
     insert wishlist records 
 */
 INSERT INTO wishlist(user_id, book_id) 
     VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Thorin'), 
-        (SELECT book_id FROM book WHERE book_name = 'The Hobbit or There and Back Again')
+        (SELECT user_id FROM user WHERE first_name = 'Atticus'), 
+        (SELECT book_id FROM book WHERE book_name = 'To Kill a Mockingbird')
     );
 
 INSERT INTO wishlist(user_id, book_id)
     VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Bilbo'),
-        (SELECT book_id FROM book WHERE book_name = 'The Fellowship of the Ring')
+        (SELECT user_id FROM user WHERE first_name = 'Winston'),
+        (SELECT book_id FROM book WHERE book_name = '1984')
     );
 
 INSERT INTO wishlist(user_id, book_id)
     VALUES (
-        (SELECT user_id FROM user WHERE first_name = 'Frodo'),
-        (SELECT book_id FROM book WHERE book_name = 'The Return of the King')
+        (SELECT user_id FROM user WHERE first_name = 'Jay'),
+        (SELECT book_id FROM book WHERE book_name = 'the Great Gatsby')
     );

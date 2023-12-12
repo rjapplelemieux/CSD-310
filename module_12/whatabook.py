@@ -6,7 +6,7 @@ from mysql.connector import errorcode
 """ database config object """
 config = {
     "user": "root",
-    "password": "BlueDemon1234!@#",
+    "password": "root",
     "host": "localhost:3306",
     "database": "whatabook",
     "raise_on_warnings": True

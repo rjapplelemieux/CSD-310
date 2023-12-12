@@ -1,11 +1,4 @@
 /*
-    Title: whatabook_program_queries.sql
-    Author: Professor Krasso
-    Date: 16 July 2020
-    Description: WhatABook program queriesd
-*/
-
-/*
     Select query to view a users wishlist items 
 */
 SELECT user.user_id, user.first_name, user.last_name, book.book_id, book.book_name, book.author
